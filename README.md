@@ -1,8 +1,12 @@
 # OCLintDemo
 source ~/.bash_profile
+
 cd ${SRCROOT}
+
 xcodebuild clean
+
 xcodebuild analyze | xcpretty -r json-compilation-database
+
 xcpretty --report xcode
 
 1. brew tap oclint/formulae   
