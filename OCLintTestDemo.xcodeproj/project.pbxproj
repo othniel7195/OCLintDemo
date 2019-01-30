@@ -28,6 +28,8 @@
 		B93BBBC821FD86D000DC4A9E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B93BBBC621FD86D000DC4A9E /* LaunchScreen.storyboard */; };
 		B93BBBCB21FD86D000DC4A9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B93BBBCA21FD86D000DC4A9E /* main.m */; };
 		B93BBBD521FD86D100DC4A9E /* OCLintTestDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B93BBBD421FD86D100DC4A9E /* OCLintTestDemoTests.m */; };
+		B93BBBE621FD95FC00DC4A9E /* TestRule.m in Sources */ = {isa = PBXBuildFile; fileRef = B93BBBE521FD95FC00DC4A9E /* TestRule.m */; };
+		B93BBBE921FD982900DC4A9E /* TestRule2.m in Sources */ = {isa = PBXBuildFile; fileRef = B93BBBE821FD982900DC4A9E /* TestRule2.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,11 @@
 		B93BBBD021FD86D100DC4A9E /* OCLintTestDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OCLintTestDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B93BBBD421FD86D100DC4A9E /* OCLintTestDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = OCLintTestDemoTests.m; sourceTree = "<group>"; };
 		B93BBBD621FD86D100DC4A9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B93BBBE421FD95FC00DC4A9E /* TestRule.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRule.h; sourceTree = "<group>"; };
+		B93BBBE521FD95FC00DC4A9E /* TestRule.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRule.m; sourceTree = "<group>"; };
+		B93BBBE721FD982900DC4A9E /* TestRule2.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestRule2.h; sourceTree = "<group>"; };
+		B93BBBE821FD982900DC4A9E /* TestRule2.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestRule2.m; sourceTree = "<group>"; };
+		B93BBBF12200B87400DC4A9E /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +87,7 @@
 				B93BBBBA21FD86CF00DC4A9E /* OCLintTestDemo */,
 				B93BBBD321FD86D100DC4A9E /* OCLintTestDemoTests */,
 				B93BBBB921FD86CF00DC4A9E /* Products */,
+				B93BBBF02200B87400DC4A9E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -99,6 +107,10 @@
 				B93BBBBC21FD86CF00DC4A9E /* AppDelegate.m */,
 				B93BBBBE21FD86CF00DC4A9E /* ViewController.h */,
 				B93BBBBF21FD86CF00DC4A9E /* ViewController.m */,
+				B93BBBE421FD95FC00DC4A9E /* TestRule.h */,
+				B93BBBE521FD95FC00DC4A9E /* TestRule.m */,
+				B93BBBE721FD982900DC4A9E /* TestRule2.h */,
+				B93BBBE821FD982900DC4A9E /* TestRule2.m */,
 				B93BBBC121FD86CF00DC4A9E /* Main.storyboard */,
 				B93BBBC421FD86D000DC4A9E /* Assets.xcassets */,
 				B93BBBC621FD86D000DC4A9E /* LaunchScreen.storyboard */,
@@ -115,6 +127,14 @@
 				B93BBBD621FD86D100DC4A9E /* Info.plist */,
 			);
 			path = OCLintTestDemoTests;
+			sourceTree = "<group>";
+		};
+		B93BBBF02200B87400DC4A9E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B93BBBF12200B87400DC4A9E /* Foundation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,7 +252,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "source ~/.bash_profile\ncd ${SRCROOT}\nxcodebuild clean\nxcodebuild analyze | xcpretty -r json-compilation-database\nxcpretty --report xcode\n\n";
+			shellScript = "source ~/.bash_profile\ncd ${SRCROOT}\nxcodebuild clean\nxcodebuild analyze | xcpretty -r json-compilation-database --output ./compile_commands.json\noclint-json-compilation-database -- -report-type xcode\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -242,6 +262,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B93BBBC021FD86CF00DC4A9E /* ViewController.m in Sources */,
+				B93BBBE621FD95FC00DC4A9E /* TestRule.m in Sources */,
+				B93BBBE921FD982900DC4A9E /* TestRule2.m in Sources */,
 				B93BBBCB21FD86D000DC4A9E /* main.m in Sources */,
 				B93BBBBD21FD86CF00DC4A9E /* AppDelegate.m in Sources */,
 			);

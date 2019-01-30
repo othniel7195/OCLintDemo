@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "TestRule.h"
 
 typedef void(^testBlock)(void);
 
@@ -21,19 +22,21 @@ typedef void(^testBlock)(void);
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self testtesttatsadttadtadsasdasdads];
+//    [self testtesttatsadttadtadsasdasdads];
+//
+//    self.blk = ^{
+//        [self.arr addObject:@(11)];
+//    };
+//
     
-    self.blk = ^{
-        [self.arr addObject:@(11)];
-    };
-    
+// TestRule *r = [[TestRule alloc] init];
 }
 
-- (void)testtesttatsadttadtadsasdasdads
-{
-    int a = 0;
-    
-    self.arr = [NSMutableArray array];
-}
+//- (void)testtesttatsadttadtadsasdasdads
+//{
+//    int a = 0;
+//    
+//    self.arr = [NSMutableArray array];
+//}
 
 @end
